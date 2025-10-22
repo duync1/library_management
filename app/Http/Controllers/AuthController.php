@@ -15,30 +15,37 @@ class AuthController extends Controller
 
     public function register(Request $request) {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users',
+            'fullname' => 'required|string|max:255',
+            'username' => 'required|string|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
 
         User::create([
-            'name' => $request->name,
-            'email' => $request->email,
+            'fullname' => $request->fullname,
+            'username' => $request->username,
             'password' => Hash::make($request->password),
         ]);
 
         return redirect()->route('auth.page')->with('success', 'Register successfully! Please login.');
+        // echo 'Register successfully! Please login.';
     }
 
     public function login(Request $request) {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('username', 'password');
 
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect('/dashboard'); // Chuyển hướng đến trang chính
+            $user = Auth::user();
+
+            if($user->role === 'admin'){
+                return redirect('/admin/books');
+            }
+
+            return redirect('/user/books');
+            
         }
 
         return back()->withErrors([
-            'email' => 'Invalid credentials.',
+            'username' => 'Invalid credentials.',
         ]);
     }
 

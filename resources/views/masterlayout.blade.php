@@ -245,12 +245,57 @@
       </div>
     </div>
 
-     <script src="{{ asset('js/core/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ asset('js/core/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ asset('js/core/popper.min.js') }}"></script>
     <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/plugin/jquery-scrollbar/jquery.scrollbar.min.js') }}"></script>
     <script src="{{ asset('js/plugin/jquery.sparkline/jquery.sparkline.min.js') }}"></script>
     <script src="{{ asset('js/plugin/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
+
+    @if (session('success'))
+        <script>
+            $(document).ready(function() {
+                $.notify({
+                    message: "{{ session('success') }}"
+                },{
+                    type: 'success',
+                    placement: {
+                        from: "top",
+                        align: "right"
+                    },
+                    delay: 3000,
+                    z_index: 2000,
+                    animate: {
+                        enter: 'animated fadeInDown',
+                        exit: 'animated fadeOutUp'
+                    }
+                });
+            });
+        </script>
+    @endif
+
+    @if (session('error'))
+        <script>
+            $(document).ready(function() {
+                $.notify({
+                    message: "{{ session('error') }}"
+                },{
+                    type: 'danger',
+                    placement: {
+                        from: "top",
+                        align: "right"
+                    },
+                    delay: 3000,
+                    z_index: 2000,
+                    animate: {
+                        enter: 'animated fadeInDown',
+                        exit: 'animated fadeOutUp'
+                    }
+                });
+            });
+        </script>
+    @endif
+
 
     @yield('scripts')
     

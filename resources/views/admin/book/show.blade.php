@@ -115,13 +115,13 @@
             >
             <thead>
                 <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Published Date</th>
-                <th>Genre</th>
-                <th>Quantity</th>
-                <th style="width: 10%">Action</th>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Published Date</th>
+                    <th>Genre</th>
+                    <th>Quantity</th>
+                    <th style="width: 10%">Action</th>
                 </tr>
             </thead>
             <tbody>

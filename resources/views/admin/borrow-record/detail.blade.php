@@ -3,19 +3,6 @@
 @section('content')
     <div class="col-md-12">
     <div class="card">
-        <div class="card-header">
-        <div class="d-flex align-items-center">
-            <h4 class="card-title">Add Row</h4>
-            <button
-            class="btn btn-primary btn-round ms-auto"
-            data-bs-toggle="modal"
-            data-bs-target="#addRowModal"
-            >
-            <i class="fa fa-plus"></i>
-            Add Row
-            </button>
-        </div>
-        </div>
         <div class="card-body">
         
 
@@ -36,36 +23,17 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($borrowRecords as $record)
                 <tr>
-                    <td>1</td>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>Edinburgh</td>
-                    <td>Edinburgh</td>
-                    <td>
-                        <div class="form-button-action">
-                        <button
-                            type="button"
-                            data-bs-toggle="tooltip"
-                            title=""
-                            class="btn btn-link btn-primary btn-lg"
-                            data-original-title="Edit Task"
-                        >
-                            <i class="fa fa-edit"></i>
-                        </button>
-                        <button
-                            type="button"
-                            data-bs-toggle="tooltip"
-                            title=""
-                            class="btn btn-link btn-danger"
-                            data-original-title="Remove"
-                        >
-                            <i class="fa fa-times"></i>
-                        </button>
-                        </div>
-                    </td>
+                    <td>{{ $record->id }}</td>
+                    <td>{{ $record->user->fullname }}</td>
+                    <td>{{ $record->book->title }}</td>
+                    <td>{{ $record->borrowed_at }}</td>
+                    <td>{{ $record->returned_at }}</td>
+                    <td>{{ $record->status }}</td>
+                    <td></td>
                 </tr>
+                @endforeach
             </tbody>
             </table>
         </div>

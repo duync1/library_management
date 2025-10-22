@@ -63,8 +63,8 @@
           @csrf
           <h2 class="text-center mb-4">Sign In</h2>
           <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input name="email" type="email" class="form-control" placeholder="Enter your email" required />
+            <label class="form-label">Username</label>
+            <input name="username" type="text" class="form-control" placeholder="Enter your username" required />
           </div>
           <div class="mb-3">
             <label class="form-label">Password</label>
@@ -82,11 +82,11 @@
           <h2 class="text-center mb-4">Sign Up</h2>
           <div class="mb-3">
             <label class="form-label">Full Name</label>
-            <input name="name" type="text" class="form-control" placeholder="Enter your name" required />
+            <input name="fullname" type="text" class="form-control" placeholder="Enter your name" required />
           </div>
           <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input name="email" type="email" class="form-control" placeholder="Enter your email" required />
+            <label class="form-label">Username</label>
+            <input name="username" type="text" class="form-control" placeholder="Enter your username" required />
           </div>
           <div class="mb-3">
             <label class="form-label">Password</label>
