@@ -16,7 +16,7 @@ class AuthController extends Controller
     public function register(Request $request) {
         $request->validate([
             'fullname' => 'required|string|max:255',
-            'username' => 'required|string|unique:users',
+            'username' => 'required|string|unique:users,username',
             'password' => 'required|confirmed|min:6',
         ]);
 
@@ -27,7 +27,6 @@ class AuthController extends Controller
         ]);
 
         return redirect()->route('auth.page')->with('success', 'Register successfully! Please login.');
-        // echo 'Register successfully! Please login.';
     }
 
     public function login(Request $request) {

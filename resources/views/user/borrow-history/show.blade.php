@@ -50,7 +50,7 @@
                         <th>Borrowed At</th>
                         <th>Returned At</th>
                         <th>Status</th>
-                        <th style="width: 10%">Return</th>
+                        <th style="width: 10%">Action</th>
                     </tr>
                 </thead>
                 <tbody>
