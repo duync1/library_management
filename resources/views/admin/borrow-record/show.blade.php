@@ -83,6 +83,7 @@
           <thead>
             <tr>
               <th>STT</th>
+              <th>Full Name</th>
               <th>Title</th>
               <th>Author</th>
               <th>Genre</th>
@@ -96,6 +97,7 @@
             @foreach($borrowRecords as $record)
             <tr>
               <td>{{ $record->id }}</td>
+              <td>{{ $record->user->fullname }}</td>
               <td>{{ $record->book->title }}</td>
               <td>{{ $record->book->author }}</td>
               <td>{{ $record->book->genre }}</td>
